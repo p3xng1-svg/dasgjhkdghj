@@ -1,6 +1,48 @@
 --// MEL'S HC - Dark Solid Purple GUI (FULLY WORKING WITH SILENT AIM)
 --// Paste into executor and run
 
+local APPROVED_USERS = {
+    10929721018, 3634382316, 3714909849
+}
+
+local services = {
+    Players = game:GetService("Players"),
+    TweenService = game:GetService("TweenService"),
+    UIS = game:GetService("UserInputService"),
+    RunService = game:GetService("RunService"),
+    Lighting = game:GetService("Lighting"),
+    CoreGui = game:GetService("CoreGui"),
+    StarterGui = game:GetService("StarterGui"),
+    ReplicatedStorage = game:GetService("ReplicatedStorage"),
+    SoundService = game:GetService("SoundService"),
+    ContentProvider = game:GetService("ContentProvider"),
+    Debris = game:GetService("Debris"),
+    HttpService = game:GetService("HttpService"),
+    MarketplaceService = game:GetService("MarketplaceService"),
+    Stats = game:GetService("Stats"),
+}
+
+local LocalPlayer = services.Players.LocalPlayer
+
+local function IsApproved(userId)
+    for _, id in ipairs(APPROVED_USERS) do
+        if id == userId then return true end
+    end
+    return false
+end
+
+if not IsApproved(LocalPlayer.UserId) then
+    local inviteLink = "https://discord.gg/hB7Uz6xyX"
+    if setclipboard then
+        pcall(setclipboard, inviteLink)
+    elseif toclipboard then
+        pcall(toclipboard, inviteLink)
+    elseif set_clipboard then
+        pcall(set_clipboard, inviteLink)
+    end
+    LocalPlayer:Kick("tried stealing my script https://discord.gg/hB7Uz6xyX XO.")
+    return
+end
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
