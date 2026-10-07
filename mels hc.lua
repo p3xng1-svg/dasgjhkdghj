@@ -2,7 +2,7 @@
 --// Paste into executor and run
 
 local APPROVED_USERS = {
-    10929721018, 3634382316, 3714909849
+    10929721018, 3634382316, 3714909849, 1741417460
 }
 
 local services = {
